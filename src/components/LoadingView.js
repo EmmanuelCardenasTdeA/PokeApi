@@ -2,10 +2,12 @@ import React from "react";
 import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
 
 export const LoadingView = ({message = 'Cargando Pokemon'}) =>{
+    return(
     <View style={styles.centerContainer}>
         <ActivityIndicator size="large" color="#E3350D" />
         <Text style={styles.text}>{message}</Text>
     </View>
+    );
 };
 
 const styles = StyleSheet.create({

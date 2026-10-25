@@ -1,20 +1,22 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
-import {formatPokemonId , capitalize} from '../data/constants'
+import { Text, Image, TouchableOpacity, StyleSheet } from "react-native";
+import { formatPokemonId, capitalize } from '../data/constants';
 
-export default function PokemonCard({pokemon, onPress}){
-    return(
+export const PokemonCard = ({ pokemon, onPress }) => {
+    return (
         <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.7}>
             <Text style={styles.idText}>{formatPokemonId(pokemon.id)}</Text>
             <Image 
-                source={{uri: pokemon.imageUrl}}
+                source={{ uri: pokemon.imageUrl }}
                 style={styles.image}
                 resizeMode="contain"
             />
             <Text style={styles.name}>{capitalize(pokemon.name)}</Text>
         </TouchableOpacity>
-    )
+    );
 };
+
+export default PokemonCard;
 
 const styles = StyleSheet.create({
   card: {

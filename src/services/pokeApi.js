@@ -4,7 +4,7 @@ const BASE_URL = 'https://pokeapi.co/api/v2';
 
 //extraer id del url
 
-const exportIdFromUrl = (url) => {
+const extractIdFromUrl = (url) => {
     const parts = url.split('/').filter(Boolean);
     return parts[parts.length - 1]
 };
@@ -12,7 +12,7 @@ const exportIdFromUrl = (url) => {
 //limite de pokemones y listamos
 
 export const getPokemonList = async (limit = 20, offset = 0) => {
-    try{
+    try {
         const response = await fetch(`${BASE_URL}/pokemon?limit=${limit}&offset=${offset}`);
 
         //respuesta del servidor
@@ -44,7 +44,7 @@ export const getPokemonList = async (limit = 20, offset = 0) => {
 
 //Detalle de un poquemon por ID o nombre
 
-export const getPokemonDetails = async (query) => {
+export const getPokemonDetail = async (query) => {
     try{
         const cleanQuery = String(query).trim().toLowerCase();
         const response = await fetch(`${BASE_URL}/pokemon/${cleanQuery}`)
@@ -64,7 +64,7 @@ export const getPokemonDetails = async (query) => {
             name:data.name,
             heightMeters:data.height / 10,
             weightKg: data.weight / 10,
-            types: data.types.map((t) =>{t.type.name}),
+            types: data.types.map((t) =>t.type.name),
             stats: data.stats.map((s) =>({
                 name:s.stat.name,
                 value:s.stat.base_stat,

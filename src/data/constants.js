@@ -22,16 +22,16 @@ export const TYPE_COLORS = {
 
 //formatear el id del pokemon
 export const formatPokemonId = (id) => {
-    `#${String(id).padStart(3, '0')}`
+    return `#${String(id).padStart(3, '0')}`
 };
 
 //primera letra en mayus
 export const capitalize = (str) =>{
-    str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
+    return str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
 };
 
 //Obtener artwork por id
 
 export const getArtworkUrl = (id) => {
-    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 };

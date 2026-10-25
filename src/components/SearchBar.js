@@ -1,10 +1,15 @@
-import React from 'reac';
+import React, { useState } from 'react';
+import { View, TextInput, StyleSheet, Button } from 'react-native';
 
-import { View, TextInput, TochableOpacity, Text, StyleSheet} from 'react-native';
+export default function SearchBar({ onSearch }) {
+    const [searchTerm, setSearchTerm] = useState('');
 
-export default function SearchBar({value, onChangeText, onSearch, onClear}){
-    return(
-         <View style={styles.container}>
+    const handleSearch = () => {
+        onSearch(searchTerm);
+    };
+
+    return (
+        <View style={styles.container}>
             <TextInput
                 style={styles.input}
                 placeholder="Busca por nombre o número..."
@@ -19,8 +24,8 @@ export default function SearchBar({value, onChangeText, onSearch, onClear}){
             />
             <Button title="Buscar" onPress={handleSearch} color="#E3350D" />
         </View>
-  );
-};
+    );
+}
 
 const styles = StyleSheet.create({
   container: {
