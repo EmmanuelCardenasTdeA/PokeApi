@@ -4,57 +4,41 @@ import { View, TextInput, TochableOpacity, Text, StyleSheet} from 'react-native'
 
 export default function SearchBar({value, onChangeText, onSearch, onClear}){
     return(
-        <View style={styles.container}>
+         <View style={styles.container}>
             <TextInput
-            style={styles.input}
-            placeholder='Buscar por nombre o numero'
-            placeholderTextColor='#888'
-            value={value}
-            onChangeText={onChangeText}
-            autoCapitalize='none'
-            autoCorrect={false}
-            returnKeyType='search'
-            onSubmitEditing={onSearch}
+                style={styles.input}
+                placeholder="Busca por nombre o número..."
+                placeholderTextColor="#888"
+                value={searchTerm}
+                onChangeText={setSearchTerm}
+                // Desactiva autocorrección y mayúsculas automáticas
+                autoCapitalize="none"
+                autoCorrect={false}
+                returnKeyType="search"
+                onSubmitEditing={handleSearch}
             />
-            <TochableOpacity>
-                <Text>Buscar</Text>
-            </TochableOpacity>
-            {value.leght > 0 && (
-                <TochableOpacity onPress={onClear}>
-                    <Text>Limpiar</Text>
-                </TochableOpacity>
-            )}
+            <Button title="Buscar" onPress={handleSearch} color="#E3350D" />
         </View>
-    );
-}
+  );
+};
 
 const styles = StyleSheet.create({
-    container: {
-        flexDirection:'row',
-        paddingHorizontal:16,
-        paddingVertical:10,
-        alignItems:'center',
-        gap: 8,
-    },
-    input:{
-        flex:1,
-        height:44,
-        backgroundColor: '#FFFFFF',
-        borderRadius:8,
-        paddingHorizontal:14,
-        fontSize:14,
-        color: '#1A1A1A',
-    },
-    buttonText:{
-        color:'#fff',
-        fontWeight: 'bold',
-        fontSize: 14,
-    },
-    clearButton:{
-        padding: 6,
-    },
-    clearButtonText:{
-        color:'#888',
-        fontSize:16,
-    }
-})
+  container: {
+    flexDirection: 'row',
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    gap: 8,
+    backgroundColor: '#FFFFFF',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E0E0E0',
+  },
+  input: {
+    flex: 1,
+    height: 40,
+    borderWidth: 1,
+    borderColor: '#CCCCCC',
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    backgroundColor: '#F9F9F9',
+  },
+});
