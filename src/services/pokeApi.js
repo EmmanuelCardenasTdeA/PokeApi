@@ -1,4 +1,4 @@
-import { getArtworkUrl } from "../utils/constants";
+import { getArtworkUrl } from "../data/constants";
 
 const BASE_URL = 'https://pokeapi.co/api/v2';
 
@@ -9,7 +9,7 @@ const exportIdFromUrl = (url) => {
     return parts[parts.length - 1]
 };
 
-//limite de pokemones
+//limite de pokemones y listamos
 
 export const getPokemonList = async (limit = 20, offset = 0) => {
     try{
@@ -22,6 +22,7 @@ export const getPokemonList = async (limit = 20, offset = 0) => {
 
         const data = await response.json();
 
+        //Se mapea solo la indormacion necesaria
         const formattedResults = data.results.map((item) => {
             const id = extractIdFromUrl(item.url);
             return {
@@ -39,6 +40,9 @@ export const getPokemonList = async (limit = 20, offset = 0) => {
         throw new Error (error);
     }
 };
+
+
+//Detalle de un poquemon por ID o nombre
 
 export const getPokemonDetails = async (query) => {
     try{
