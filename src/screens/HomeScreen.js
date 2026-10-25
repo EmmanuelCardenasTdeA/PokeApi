@@ -87,7 +87,7 @@ export const HomeScreen = ({ onSelectPokemon }) => {
     <View style={styles.container}>
       {/* Encabezado */}
       <View style={styles.header}>
-        <Text style={styles.title}>PokeDex by Zap</Text>
+        <Text style={styles.title}>PokéDex Explorer</Text>
       </View>
 
       {/* Barra de búsqueda */}

@@ -57,7 +57,7 @@ export const DetailView = ({ pokemonDataOrId, onBack}) =>{
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <View style={styles.topBar}>
-        <Button title="Atras" onPress={onBack} color="#E3350D" />
+        <Button title="Volver a la lista" onPress={onBack} color="#E3350D" />
       </View>
 
       {/* Imagen */}
